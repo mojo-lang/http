@@ -41,3 +41,29 @@ func TestRouter_ToAttributes(t *testing.T) {
 
     assert.Equal(t, attributes[1].Name, attrs[1].Name)
 }
+
+func TestRouter_ApplyTemplateValues(t *testing.T) {
+    router := &Router{
+        Path:    core.NewTemplateString("/tile/v1/{{service}}/{x}/{y}/{z}"),
+        Headers: []*TemplateHeader{{Name: "Connection", Value: core.NewTemplateString("Keep-Alive-{{service}}")}},
+        Method:  Method_METHOD_GET,
+    }
+
+    router.ApplyTemplateValues(map[string]string{"service": "3d"})
+
+    assert.Equal(t, "/tile/v1/3d/{x}/{y}/{z}", router.Path.Format())
+    assert.Equal(t, "Keep-Alive-3d", router.Headers[0].Value.Format())
+}
+
+func TestRouter_ApplyTemplateValues2(t *testing.T) {
+    router := &Router{
+        Path:    core.NewTemplateString("/tile/v1/{{service}}/{x}/{y}/{z}"),
+        Headers: []*TemplateHeader{{Name: "Connection", Value: core.NewTemplateString("Keep-Alive-{{service}}")}},
+        Method:  Method_METHOD_GET,
+    }
+
+    router.ApplyTemplateValues(map[string]string{"service": ""})
+
+    assert.Equal(t, "/tile/v1/{x}/{y}/{z}", router.Path.Format())
+    assert.Equal(t, "Keep-Alive-", router.Headers[0].Value.Format())
+}
