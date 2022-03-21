@@ -1,0 +1,1 @@
+{"title":"mojo.http.Header","description":"","type":"object","properties":{"name":{"type":"string"},"value":{"type":"string"}}}
