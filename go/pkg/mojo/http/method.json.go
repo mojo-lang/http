@@ -18,13 +18,15 @@
 package http
 
 import (
-	jsoniter "github.com/json-iterator/go"
 	"unsafe"
+
+	jsoniter "github.com/json-iterator/go"
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
 func init() {
-	jsoniter.RegisterTypeDecoder("http.Method", &MethodCodec{})
-	jsoniter.RegisterTypeEncoder("http.Method", &MethodCodec{})
+	core.RegisterJSONTypeDecoder("http.Method", &MethodCodec{})
+	core.RegisterJSONTypeEncoder("http.Method", &MethodCodec{})
 }
 
 type MethodCodec struct {
