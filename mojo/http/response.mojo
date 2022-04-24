@@ -12,11 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/// the body attribute indicating the field in struct is mapping to http body for request or response
-attribute body: Bool
+/// Response represents the response from an HTTP request.
+type Response {
+    /// The protocol version for incoming server requests.
+    version: Version @1
 
-attribute query: String
+    /// 
+    status: Status @2
 
-attribute header: TemplateHeader
+    /// Headers contains the request header fields either received
+	/// by the server or to be sent by the client.
+    headers: Headers @4
 
-attribute fragment: TemplateString
+    /// body is the request's body, which ban be raw bytes or JSON object
+    body: Value @5
+}

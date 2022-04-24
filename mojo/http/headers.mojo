@@ -12,11 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/// the body attribute indicating the field in struct is mapping to http body for request or response
-attribute body: Bool
+/// 
+type Headers: {String @label("name") : [String] @label("values")}
 
-attribute query: String
-
-attribute header: TemplateHeader
-
-attribute fragment: TemplateString
+//  {
+//     name: String @1
+//     values: [String] @2
+// }

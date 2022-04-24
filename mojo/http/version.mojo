@@ -12,11 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/// the body attribute indicating the field in struct is mapping to http body for request or response
-attribute body: Bool
-
-attribute query: String
-
-attribute header: TemplateHeader
-
-attribute fragment: TemplateString
+// The http version
+// For client requests, these fields are ignored. The HTTP
+// client code always uses either HTTP/1.1 or HTTP/2.
+// See the docs on Transport for details.
+@format("HTTP/{major}{.minor}")
+type Version {
+    major: Int32 @1
+    minor: Int32 @2
+}

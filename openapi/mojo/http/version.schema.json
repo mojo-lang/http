@@ -1,0 +1,1 @@
+{"title":"mojo.http.Version","description":"","type":"object","properties":{"major":{"type":"integer","format":"int32"},"minor":{"type":"integer","format":"int32"}}}

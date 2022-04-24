@@ -9,7 +9,7 @@ import (
     "strings"
 )
 
-func (m *Router) FromAttributes(attributes []*lang.Attribute) error {
+func (x *Router) FromAttributes(attributes []*lang.Attribute) error {
     for _, attribute := range attributes {
         if attribute.PackageName != "http" {
             continue
@@ -17,14 +17,14 @@ func (m *Router) FromAttributes(attributes []*lang.Attribute) error {
 
         switch attribute.Name {
         case "get", "post", "put", "patch", "delete", "options", "head", "trace", "connect":
-            if err := m.Method.Parse(strings.ToUpper(attribute.Name)); err != nil {
+            if err := x.Method.Parse(strings.ToUpper(attribute.Name)); err != nil {
                 return err
             }
             if len(attribute.Arguments) > 0 {
                 if value := attribute.Arguments[0].GetStringLiteralExpr().EvalValue(); len(value) > 0 {
-                    m.Path = core.NewTemplateString(value)
-                    if m.Path == nil {
-                        return logs.NewErrorw("failed to parse the http router path", "path", value, "method", m.Method.Format())
+                    x.Path = core.NewTemplateString(value)
+                    if x.Path == nil {
+                        return logs.NewErrorw("failed to parse the http router path", "path", value, "method", x.Method.Format())
                     }
                 }
             }
@@ -35,7 +35,7 @@ func (m *Router) FromAttributes(attributes []*lang.Attribute) error {
                     return errors.New("failed to parse the http header attribute")
                 }
                 if value = attribute.Arguments[1].GetStringLiteralExpr().EvalValue(); len(value) > 0 {
-                    m.Headers = append(m.Headers, &TemplateHeader{
+                    x.Headers = append(x.Headers, &TemplateHeader{
                         Name:  name,
                         Value: core.NewTemplateString(value),
                     })
@@ -46,16 +46,16 @@ func (m *Router) FromAttributes(attributes []*lang.Attribute) error {
     return nil
 }
 
-func (m *Router) ToAttributes() []*lang.Attribute {
+func (x *Router) ToAttributes() []*lang.Attribute {
     var attributes []*lang.Attribute
-    if m.Path != nil {
+    if x.Path != nil {
         attributes = append(attributes, &lang.Attribute{
             PackageName: "http",
-            Name:        strings.ToLower(m.Method.Format()),
-            Arguments:   []*lang.Argument{lang.NewStringArgument(m.Path.Format())},
+            Name:        strings.ToLower(x.Method.Format()),
+            Arguments:   []*lang.Argument{lang.NewStringArgument(x.Path.Format())},
         })
     }
-    for _, header := range m.Headers {
+    for _, header := range x.Headers {
         attributes = append(attributes, &lang.Attribute{
             PackageName: "http",
             Name:        HeaderAttributeName,
@@ -84,17 +84,17 @@ func applyTemplateValues(str string, values map[string]string) string {
     })
 }
 
-func (m *Router) ApplyTemplateValues(values map[string]string) {
-    if m != nil {
-        if m.Path != nil {
-            for _, segment := range m.Path.Segments {
+func (x *Router) ApplyTemplateValues(values map[string]string) {
+    if x != nil {
+        if x.Path != nil {
+            for _, segment := range x.Path.Segments {
                 if !segment.Templated {
                     segment.Content = applyTemplateValues(segment.Content, values)
                     segment.Content = strings.ReplaceAll(segment.Content, "//", "/")
                 }
             }
         }
-        for _, header := range m.Headers {
+        for _, header := range x.Headers {
             for _, segment := range header.GetValue().GetSegments() {
                 if !segment.Templated {
                     segment.Content = applyTemplateValues(segment.Content, values)

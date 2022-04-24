@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/// the body attribute indicating the field in struct is mapping to http body for request or response
-attribute body: Bool
 
-attribute query: String
-
-attribute header: TemplateHeader
-
-attribute fragment: TemplateString
+/// Status Code and Reason Phrase
+/// The code element is a 3-digit integer result code of the attempt to understand and satisfy the request.
+/// The reason phrase is intended to give a short textual description of the code.
+type Status {
+    code: Int32 @1
+    reason: String @2
+}

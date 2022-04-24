@@ -2,6 +2,9 @@ package http
 
 import "strings"
 
+const MethodTypeName = "Method"
+const MethodTypeFullName = "mojo.http.Method"
+
 func (x Method) CanCarryBody() bool {
     switch x {
     case Method_METHOD_POST, Method_METHOD_PUT, Method_METHOD_PATCH:
