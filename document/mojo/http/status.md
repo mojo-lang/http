@@ -1,4 +1,4 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `code` | `integer` | `int32` | 否 |  |
-| `reason` | `string` |  | 否 |  |
+| `code` | `integer` | `Int32` | N |  |
+| `reason` | `string` |  | N |  |

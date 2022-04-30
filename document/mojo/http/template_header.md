@@ -1,4 +1,4 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `name` | `string` |  | 否 |  |
-| `value` | `mojo.core.TemplateString` |  | 否 |  |
+| `name` | `string` |  | N |  |
+| `value` | `mojo.core.TemplateString` |  | N |  |  |

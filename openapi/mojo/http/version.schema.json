@@ -1,1 +1,1 @@
-{"title":"mojo.http.Version","description":"","type":"object","properties":{"major":{"type":"integer","format":"int32"},"minor":{"type":"integer","format":"int32"}}}
+{"title":"mojo.http.Version","description":"","type":"object","properties":{"major":{"title":"mojo.core.Int32","type":"integer","format":"Int32"},"minor":{"title":"mojo.core.Int32","type":"integer","format":"Int32"}}}
