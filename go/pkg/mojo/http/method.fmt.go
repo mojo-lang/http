@@ -58,6 +58,10 @@ func (x Method) Format() string {
 	return strconv.Itoa(int(x))
 }
 
+func (x Method) ToString() string {
+	return x.Format()
+}
+
 func (x *Method) Parse(value string) error {
 	if x != nil {
 		s, ok := MethodValues[value]
