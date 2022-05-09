@@ -33,3 +33,8 @@ type Request {
     /// body is the request's body, which ban be raw bytes or JSON object
     body: Value @5
 }
+
+type RequestOptions {
+    timeout: Duration @1
+    max_retries: Int32 @2
+}

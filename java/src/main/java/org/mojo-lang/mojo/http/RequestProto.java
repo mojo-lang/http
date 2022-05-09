@@ -19,6 +19,11 @@ public final class RequestProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mojo_http_Request_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_http_RequestOptions_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_http_RequestOptions_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -28,21 +33,25 @@ public final class RequestProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027mojo/http/request.proto\022\tmojo.http\032\023mo" +
-      "jo/core/url.proto\032\025mojo/core/value.proto" +
-      "\032\027mojo/http/headers.proto\032\026mojo/http/met" +
-      "hod.proto\032\027mojo/http/version.proto\"\263\001\n\007R" +
-      "equest\022!\n\006method\030\001 \001(\0162\021.mojo.http.Metho" +
-      "d\022\033\n\003url\030\002 \001(\0132\016.mojo.core.Url\022#\n\007versio" +
-      "n\030\003 \001(\0132\022.mojo.http.Version\022#\n\007headers\030\004" +
-      " \001(\0132\022.mojo.http.Headers\022\036\n\004body\030\005 \001(\0132\020" +
-      ".mojo.core.ValueBZ\n\027org.mojo-lang.mojo.h" +
-      "ttpB\014RequestProtoP\001Z/github.com/mojo-lan" +
-      "g/http/go/pkg/mojo/http;httpb\006proto3"
+      "\n\027mojo/http/request.proto\022\tmojo.http\032\024mo" +
+      "jo/core/time.proto\032\023mojo/core/url.proto\032" +
+      "\025mojo/core/value.proto\032\027mojo/http/header" +
+      "s.proto\032\026mojo/http/method.proto\032\027mojo/ht" +
+      "tp/version.proto\"\263\001\n\007Request\022!\n\006method\030\001" +
+      " \001(\0162\021.mojo.http.Method\022\033\n\003url\030\002 \001(\0132\016.m" +
+      "ojo.core.Url\022#\n\007version\030\003 \001(\0132\022.mojo.htt" +
+      "p.Version\022#\n\007headers\030\004 \001(\0132\022.mojo.http.H" +
+      "eaders\022\036\n\004body\030\005 \001(\0132\020.mojo.core.Value\"K" +
+      "\n\016RequestOptions\022$\n\007timeout\030\001 \001(\0132\023.mojo" +
+      ".core.Duration\022\023\n\013max_retries\030\002 \001(\005BZ\n\027o" +
+      "rg.mojo-lang.mojo.httpB\014RequestProtoP\001Z/" +
+      "github.com/mojo-lang/http/go/pkg/mojo/ht" +
+      "tp;httpb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.mojolang.mojo.core.TimeProto.getDescriptor(),
           org.mojolang.mojo.core.UrlProto.getDescriptor(),
           org.mojolang.mojo.core.ValueProto.getDescriptor(),
           org.mojo-lang.mojo.http.HeadersProto.getDescriptor(),
@@ -55,6 +64,13 @@ public final class RequestProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_http_Request_descriptor,
         new java.lang.String[] { "Method", "Url", "Version", "Headers", "Body", });
+    internal_static_mojo_http_RequestOptions_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_mojo_http_RequestOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_http_RequestOptions_descriptor,
+        new java.lang.String[] { "Timeout", "MaxRetries", });
+    org.mojolang.mojo.core.TimeProto.getDescriptor();
     org.mojolang.mojo.core.UrlProto.getDescriptor();
     org.mojolang.mojo.core.ValueProto.getDescriptor();
     org.mojo-lang.mojo.http.HeadersProto.getDescriptor();
