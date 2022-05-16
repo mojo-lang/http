@@ -16,6 +16,7 @@
 /// Status Code and Reason Phrase
 /// The code element is a 3-digit integer result code of the attempt to understand and satisfy the request.
 /// The reason phrase is intended to give a short textual description of the code.
+@format
 type Status {
     code: Int32 @1
     reason: String @2
