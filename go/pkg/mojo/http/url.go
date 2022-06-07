@@ -4,14 +4,15 @@ import "github.com/mojo-lang/core/go/pkg/mojo/core"
 
 func UnmarshalPathParam(params map[string]string, value interface{}, keys ...string) error {
     val := ""
-    for _, key := range keys {
+    key := ""
+    for _, key = range keys {
         if val, _ = params[key]; len(val) > 0 {
             break
         }
     }
 
     if len(val) == 0 {
-        return nil
+        return core.NewNotFoundError(key)
     }
 
     return core.UnmarshalParam(val, value)
@@ -25,7 +26,7 @@ func UnmarshalQueryParam(params *core.Url_Query, value interface{}, keys ...stri
         }
     }
     if len(key) == 0 {
-        return nil
+        return core.NewNotFoundError(key)
     }
     return params.Unmarshal(key, value)
 }
