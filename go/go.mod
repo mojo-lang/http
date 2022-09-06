@@ -4,8 +4,14 @@ go 1.16
 
 require (
 	github.com/alecthomas/assert v0.0.0-20170929043011-405dbfeb8e38
+	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/json-iterator/go v1.1.12
-	github.com/mojo-lang/core/go v0.0.0-20220520092744-d044478f0e2a
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
+	github.com/mojo-lang/core/go v0.0.0-20220906034541-cc0d865474ab
 	github.com/mojo-lang/lang/go v0.0.0-20220516003303-71c9d23d7e38
-	google.golang.org/protobuf v1.28.0
+	go.uber.org/atomic v1.10.0 // indirect
+	go.uber.org/multierr v1.8.0 // indirect
+	go.uber.org/zap v1.23.0 // indirect
+	google.golang.org/protobuf v1.28.1
+	gorm.io/gorm v1.23.8 // indirect
 )
