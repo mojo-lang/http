@@ -18,7 +18,11 @@
 package http
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
+
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
 var SameSiteNames = map[int32]string{
@@ -36,14 +40,17 @@ var SameSiteValues = map[string]SameSite{
 }
 
 func (x SameSite) Format() string {
-	s, ok := SameSiteNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := SameSiteNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x SameSite) ToString() string {
@@ -51,15 +58,17 @@ func (x SameSite) ToString() string {
 }
 
 func (x *SameSite) Parse(value string) error {
-	if x != nil {
-		s, ok := SameSiteValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := SameSiteValues[value]; ok {
 			*x = s
 		} else {
-			*x = SameSite_SAME_SITE_UNSEPECIFIED
+			v := core.CaseStyler("snake")(value)
+			if s, ok = SameSiteValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid SameSite: %s", value)
+			}
 		}
-	} else {
-		*x = SameSite_SAME_SITE_UNSEPECIFIED
 	}
 	return nil
 }

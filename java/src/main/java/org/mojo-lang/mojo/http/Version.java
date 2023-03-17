@@ -30,53 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Version(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            major_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            minor_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return org.mojo-lang.mojo.http.VersionProto.internal_static_mojo_http_Version_descriptor;
@@ -91,7 +44,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAJOR_FIELD_NUMBER = 1;
-  private int major_;
+  private int major_ = 0;
   /**
    * <code>int32 major = 1;</code>
    * @return The major.
@@ -102,7 +55,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MINOR_FIELD_NUMBER = 2;
-  private int minor_;
+  private int minor_ = 0;
   /**
    * <code>int32 minor = 2;</code>
    * @return The minor.
@@ -132,7 +85,7 @@ private static final long serialVersionUID = 0L;
     if (minor_ != 0) {
       output.writeInt32(2, minor_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -149,7 +102,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, minor_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -168,7 +121,7 @@ private static final long serialVersionUID = 0L;
         != other.getMajor()) return false;
     if (getMinor()
         != other.getMinor()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -183,7 +136,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getMajor();
     hash = (37 * hash) + MINOR_FIELD_NUMBER;
     hash = (53 * hash) + getMinor();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -300,26 +253,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using org.mojo-lang.mojo.http.Version.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       major_ = 0;
-
       minor_ = 0;
-
       return this;
     }
 
@@ -346,10 +293,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojo-lang.mojo.http.Version buildPartial() {
       org.mojo-lang.mojo.http.Version result = new org.mojo-lang.mojo.http.Version(this);
-      result.major_ = major_;
-      result.minor_ = minor_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(org.mojo-lang.mojo.http.Version result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.major_ = major_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.minor_ = minor_;
+      }
     }
 
     @java.lang.Override
@@ -402,7 +358,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMinor() != 0) {
         setMinor(other.getMinor());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -417,19 +373,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.mojo-lang.mojo.http.Version parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              major_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              minor_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.mojo-lang.mojo.http.Version) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int major_ ;
     /**
@@ -448,6 +428,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMajor(int value) {
       
       major_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -456,7 +437,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMajor() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       major_ = 0;
       onChanged();
       return this;
@@ -479,6 +460,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMinor(int value) {
       
       minor_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -487,7 +469,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinor() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       minor_ = 0;
       onChanged();
       return this;
@@ -525,7 +507,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Version(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

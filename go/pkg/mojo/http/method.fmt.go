@@ -18,7 +18,11 @@
 package http
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
+
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
 var MethodNames = map[int32]string{
@@ -48,14 +52,17 @@ var MethodValues = map[string]Method{
 }
 
 func (x Method) Format() string {
-	s, ok := MethodNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := MethodNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x Method) ToString() string {
@@ -63,15 +70,17 @@ func (x Method) ToString() string {
 }
 
 func (x *Method) Parse(value string) error {
-	if x != nil {
-		s, ok := MethodValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := MethodValues[value]; ok {
 			*x = s
 		} else {
-			*x = Method_METHOD_UNSEPECIFIED
+			v := core.CaseStyler("screaming_snake")(value)
+			if s, ok = MethodValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid Method: %s", value)
+			}
 		}
-	} else {
-		*x = Method_METHOD_UNSEPECIFIED
 	}
 	return nil
 }
