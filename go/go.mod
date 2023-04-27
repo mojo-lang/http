@@ -5,9 +5,9 @@ go 1.18
 require (
 	github.com/alecthomas/assert v0.0.0-20170929043011-405dbfeb8e38
 	github.com/json-iterator/go v1.1.12
-	github.com/mojo-lang/core/go v0.0.0-20230427064200-170c9301cda8
-	github.com/mojo-lang/lang/go v0.0.0-20230427065220-0c24c0ded724
-	google.golang.org/protobuf v1.28.1
+	github.com/mojo-lang/core/go v0.0.0-20230427070306-34ab6ed73f1c
+	github.com/mojo-lang/lang/go v0.0.0-20230427071021-4d8911209d5a
+	google.golang.org/protobuf v1.30.0
 )
 
 require (
@@ -26,7 +26,7 @@ require (
 	github.com/mattn/go-isatty v0.0.12 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
-	github.com/mojo-lang/document/go v0.0.0-20230427064907-2dde12374672 // indirect
+	github.com/mojo-lang/document/go v0.0.0-20230427070517-a007d4b8d5e5 // indirect
 	github.com/phpdave11/gofpdf v1.4.2 // indirect
 	github.com/sergi/go-diff v1.0.0 // indirect
 	github.com/stephenafamo/goldmark-pdf v0.0.0-20210426082656-1b7b737070eb // indirect
