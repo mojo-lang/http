@@ -41,7 +41,7 @@ func (x *TemplateHeader) Reset() {
 	}
 }
 
-func (x *TemplateHeader) String() string {
+func (x *TemplateHeader) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

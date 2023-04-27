@@ -42,7 +42,7 @@ func (x *Router) Reset() {
 	}
 }
 
-func (x *Router) String() string {
+func (x *Router) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

@@ -44,7 +44,7 @@ func (x *Request) Reset() {
 	}
 }
 
-func (x *Request) String() string {
+func (x *Request) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -120,7 +120,7 @@ func (x *RequestOptions) Reset() {
 	}
 }
 
-func (x *RequestOptions) String() string {
+func (x *RequestOptions) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

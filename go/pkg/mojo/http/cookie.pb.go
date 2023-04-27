@@ -54,7 +54,7 @@ func (x SameSite) Enum() *SameSite {
 	return p
 }
 
-func (x SameSite) String() string {
+func (x SameSite) ToText() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -100,7 +100,7 @@ func (x *Cookie) Reset() {
 	}
 }
 
-func (x *Cookie) String() string {
+func (x *Cookie) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
