@@ -5,8 +5,8 @@ go 1.18
 require (
 	github.com/alecthomas/assert v0.0.0-20170929043011-405dbfeb8e38
 	github.com/json-iterator/go v1.1.12
-	github.com/mojo-lang/core/go v0.0.0-20230427070306-34ab6ed73f1c
-	github.com/mojo-lang/lang/go v0.0.0-20230427071021-4d8911209d5a
+	github.com/mojo-lang/core/go v0.0.0-20230427095043-961105c650c8
+	github.com/mojo-lang/lang/go v0.0.0-20230427095418-142f6e7329e6
 	google.golang.org/protobuf v1.30.0
 )
 
@@ -26,7 +26,7 @@ require (
 	github.com/mattn/go-isatty v0.0.12 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
-	github.com/mojo-lang/document/go v0.0.0-20230427070517-a007d4b8d5e5 // indirect
+	github.com/mojo-lang/document/go v0.0.0-20230427095224-881190052073 // indirect
 	github.com/phpdave11/gofpdf v1.4.2 // indirect
 	github.com/sergi/go-diff v1.0.0 // indirect
 	github.com/stephenafamo/goldmark-pdf v0.0.0-20210426082656-1b7b737070eb // indirect
@@ -36,5 +36,5 @@ require (
 	go.uber.org/zap v1.24.0 // indirect
 	golang.org/x/sys v0.0.0-20210403161142-5e06dd20ab57 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
-	gorm.io/gorm v1.23.8 // indirect
+	gorm.io/gorm v1.25.0 // indirect
 )
