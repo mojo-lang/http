@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/alecthomas/assert v0.0.0-20170929043011-405dbfeb8e38
 	github.com/json-iterator/go v1.1.12
-	github.com/mojo-lang/core/go v0.0.0-20230427095043-961105c650c8
+	github.com/mojo-lang/core/go v0.0.0-20230718090416-82a7c8d4cfee
 	github.com/mojo-lang/lang/go v0.0.0-20230427095418-142f6e7329e6
 	google.golang.org/protobuf v1.30.0
 )
