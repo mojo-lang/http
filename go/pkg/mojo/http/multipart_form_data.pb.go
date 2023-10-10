@@ -40,7 +40,7 @@ func (x *MultipartFormData) Reset() {
 	}
 }
 
-func (x *MultipartFormData) ToText() string {
+func (x *MultipartFormData) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

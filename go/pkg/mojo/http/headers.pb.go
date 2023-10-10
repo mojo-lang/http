@@ -40,7 +40,7 @@ func (x *Headers) Reset() {
 	}
 }
 
-func (x *Headers) ToText() string {
+func (x *Headers) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

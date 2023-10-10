@@ -71,7 +71,7 @@ func (x Method) Enum() *Method {
 	return p
 }
 
-func (x Method) ToText() string {
+func (x Method) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 

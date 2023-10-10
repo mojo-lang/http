@@ -44,7 +44,7 @@ func (x *FormDataContent) Reset() {
 	}
 }
 
-func (x *FormDataContent) ToText() string {
+func (x *FormDataContent) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -121,7 +121,7 @@ func (x *FormDataContent_Disposition) Reset() {
 	}
 }
 
-func (x *FormDataContent_Disposition) ToText() string {
+func (x *FormDataContent_Disposition) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
