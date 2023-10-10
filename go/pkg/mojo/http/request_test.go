@@ -5,8 +5,8 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/alecthomas/assert"
 	"github.com/mojo-lang/core/go/pkg/mojo/core"
+	"github.com/stretchr/testify/assert"
 )
 
 var getGoReq = &http.Request{

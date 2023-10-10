@@ -1,8 +1,9 @@
 package http
 
 import (
-	"github.com/alecthomas/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestHeaders_AddCookies(t *testing.T) {

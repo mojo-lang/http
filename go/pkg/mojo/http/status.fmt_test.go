@@ -3,7 +3,7 @@ package http
 import (
 	"testing"
 
-	"github.com/alecthomas/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestStatus_Parse1(t *testing.T) {

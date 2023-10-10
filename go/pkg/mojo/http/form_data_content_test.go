@@ -3,7 +3,7 @@ package http
 import (
 	"testing"
 
-	"github.com/alecthomas/assert"
+	"github.com/stretchr/testify/assert"
 
 	"github.com/mojo-lang/http/go/pkg/mojo/http/testdata"
 )
