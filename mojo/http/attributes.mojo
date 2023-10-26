@@ -17,6 +17,8 @@ attribute body: Bool
 
 attribute query: String
 
+attribute style: String
+
 attribute header: TemplateHeader
 
 attribute fragment: TemplateString
