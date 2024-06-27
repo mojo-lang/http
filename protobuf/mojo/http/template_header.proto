@@ -9,7 +9,7 @@ import "mojo/core/template_string.proto";
 option go_package = "github.com/mojo-lang/http/go/pkg/mojo/http;http";
 option java_multiple_files = true;
 option java_outer_classname = "TemplateHeaderProto";
-option java_package = "org.mojo-lang.mojo.http";
+option java_package = "org.mojolang.mojo.http";
 
 message TemplateHeader {
     string name = 1;

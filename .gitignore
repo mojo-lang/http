@@ -193,6 +193,7 @@ hs_err_pid*
 
 .DS_Store
 
+target/
 java/target/
 java/mojo-parser/target/
 

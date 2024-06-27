@@ -4,7 +4,7 @@ package mojo.http {
     authors: [{
         author: 'frankee'
         email:  'frankee.zhou@gmail.com'
-        organization: 'mojo-lang.org'
+        organization: 'mojolang.org'
     }]
     
     dependencies: {
